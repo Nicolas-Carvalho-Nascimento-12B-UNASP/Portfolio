@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Nicolas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">N</div>
+            <div class="icons">
+                <a href="https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nicolas-carvalho1971" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/nickx.carv_" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </header>
+        <main>
+            <div class="top-sections">
+                <section class="welcome-section">
+                    <h1 class="typing-animation">Bem-vindo.</h1>
+                    <div class="intro">
+                        <p>Meu nome é Nicolas, moro em São Paulo e sou um futuro desenvolvedor Fullstack, atualmente estudando somente Front-end.</p>
+                        <p>Sou apaixonado por interfaces modernas, belas e intuitivas.</p>
+                    </div>
+                </section>
+                <section class="projects-section">
+                    <h2>Projetos</h2>
+                    <ul>
+                        <li><a href="#">Links</a></li>
+                        <li><a href="#">Receita</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Resultados</a></li>
+                        <li><a href="#">Carros</a></li>
+                    </ul>
+                </section>
+            </div>
+            <section class="skills-section">
+                <h2>Habilidades</h2>
+                <div class="skills-container">
+                    <div class="skill">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-css3-alt"></i>
+                        <p>CSS</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-js"></i>
+                        <p>JavaScript</i>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-code"></i>
+                        <p>C</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-laptop-code"></i>
+                        <p>C++</p>
+                    </div>
+                </div>
+            </section>
+            <section class="contacts-section">
+                <h2>Contatos</h2>
+                <div class="contacts-container">
+                    <div class="contact" onclick="copyToClipboard('nickcarva31@gmail.com', this)">
+                        <i class="fas fa-envelope"></i>
+                        <p>E-mail</p>
+                        <p class="contact-info">nickcarva31@gmail.com</p>
+                        <div class="copied-message">Copiado!</div>
+                    </div>
+                    <div class="contact" onclick="copyToClipboard('(11) 97565-2841', this)">
+                        <i class="fas fa-phone"></i>
+                        <p>Telefone</p>
+                        <p class="contact-info">(11) 97565-2841</p>
+                        <div class="copied-message">Copiado!</div>
+                    </div>
+                    <div class="contact">
+                        <a href="https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <p>GitHub</p>
+                            <p class="contact-info">@nicolascarvalho</p>
+                        </a>
+                    </div>
+                    <div class="contact">
+                        <a href="https://www.linkedin.com/in/nicolas-carvalho1971" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <p>LinkedIn</p>
+                            <p class="contact-info">@nicolascarvalho1971</p>
+                        </a>
+                    </div>
+                    <div class="contact">
+                        <a href="https://www.instagram.com/nickx.carv_" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <p>Instagram</p>
+                            <p class="contact-info">@nickx.carv_</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        function copyToClipboard(text, element) {
+            navigator.clipboard.writeText(text).then(function() {
+                const copiedMessage = element.querySelector('.copied-message');
+                copiedMessage.classList.remove('show');
+                setTimeout(() => {
+                    copiedMessage.classList.add('show');
+                    setTimeout(() => {
+                        copiedMessage.classList.remove('show');
+                    }, 1000);
+                }, 10);
+            }, function(err) {
+                console.error('Erro ao copiar: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
