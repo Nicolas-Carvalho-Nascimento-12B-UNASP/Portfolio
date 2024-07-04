@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Nicolas</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfólio | Nicolas - Futuro Fullstack</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="icon" href="/assets/icon.png" type="icon/png">
+    </head>
 <body>
     <div class="container">
         <header>
@@ -22,18 +23,19 @@
                 <section class="welcome-section">
                     <h1 class="typing-animation">Bem-vindo.</h1>
                     <div class="intro">
-                        <p>Meu nome é Nicolas, moro em São Paulo e sou um futuro desenvolvedor Fullstack, atualmente estudando somente Front-end.</p>
+                        <p>Meu nome é Nicolas, moro em São Paulo e sou um futuro desenvolvedor Fullstack, atualmente estudando somente Front-end, C e C++.</p>
                         <p>Sou apaixonado por interfaces modernas, belas e intuitivas.</p>
                     </div>
                 </section>
                 <section class="projects-section">
                     <h2>Projetos</h2>
                     <ul>
-                        <li><a href="#">Links</a></li>
-                        <li><a href="#">Receita</a></li>
-                        <li><a href="#">Feedback</a></li>
-                        <li><a href="#">Resultados</a></li>
-                        <li><a href="#">Carros</a></li>
+                        <li><a href="#" onclick="showModal('Links', 'https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP/Meus-Links', 'https://links-nicolas-carvalho-12b-tarde.vercel.app', 'Este projeto é um perfil digital interativo que reúne todos os meus links importantes em um só lugar, facilitando a navegação e acesso às minhas redes sociais e repositórios. Desenvolvido como parte de um curso, utilizei HTML e CSS para criar um design simples e funcional.')">Links</a></li>
+                        <li><a href="#" onclick="showModal('Receita', 'https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP/Receita', 'https://receita-nicolas-carvalho-nascimento-12b.vercel.app', 'Este projeto é uma página web de receita de omelete simples, desenvolvida com HTML e CSS. O objetivo é criar um layout atraente e funcional para compartilhar receitas de maneira fácil e intuitiva. A página inclui seções para ingredientes, modo de preparo e informações nutricionais.')">Receita</a></li>
+                        <li><a href="#" onclick="showModal('Feedback', 'https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP/Feedback', 'https://feedback-nicolas-carvalho-12b-ti-tarde.vercel.app', 'Este projeto é um sistema de avaliação de atendimento, desenvolvido com HTML, CSS e JavaScript. Os usuários podem avaliar o atendimento e recebem uma resposta personalizada baseada na nota escolhida. Este é o meu primeiro projeto que utiliza JavaScript para criar uma interação dinâmica.')">Feedback</a></li>
+                        <li><a href="#" onclick="showModal('Resultados', 'https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP/Resultados', 'https://resultados-nicolascarvalho12b.vercel.app', 'Este projeto é uma página de resultados de teste, desenvolvida com HTML e CSS. Pela primeira vez, implementei responsividade para dispositivos móveis, garantindo uma experiência de usuário otimizada em qualquer tela. A página mostra os resultados do teste de maneira clara e intuitiva.')">Resultados</a></li>
+                        <li><a href="#" onclick="showModal('Carros', 'https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP/Carros', 'https://carros-amber.vercel.app', 'Este projeto é uma página de categorias de carros, desenvolvido com HTML e CSS. Foi meu primeiro trabalho independente onde recebi apenas o design no Figma do professor e implementei tudo sozinho. A página apresenta três categorias de carros: Sedans, SUVs e Luxuosos, com um layout moderno e responsivo.')">Carros</a></li>
+                        <li><a href="#" onclick="showModal('Rastreamento', 'https://github.com/Nicolas-Carvalho-Nascimento-12B-UNASP/Rastreamento', 'https://rastreamento.vercel.app', 'Este projeto é um sistema de rastreamento para a entrega de um Audi, desenvolvido com HTML, CSS e JavaScript. A ideia surgiu de uma brincadeira onde compramos uma miniatura de Audi para um amigo e criamos uma experiência completa de rastreamento, enviando emails ao longo da semana como se fossem da Audi, parabenizando pela compra e permitindo rastrear a entrega.')">Rastreamento</a></li>
                     </ul>
                 </section>
             </div>
@@ -102,6 +104,17 @@
             </section>
         </main>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Projeto</h2>
+            <p id="modal-description"></p>
+            <a id="repo-link" href="#" target="_blank"><button>Repositório no GitHub</button></a>
+            <a id="project-link" href="#" target="_blank"><button>Ver Projeto</button></a>
+        </div>
+    </div>
+
     <script>
         function copyToClipboard(text, element) {
             navigator.clipboard.writeText(text).then(function() {
@@ -116,6 +129,39 @@
             }, function(err) {
                 console.error('Erro ao copiar: ', err);
             });
+        }
+
+        function showModal(projectName, repoLink, projectLink, description) {
+            document.getElementById('modal-title').innerText = 'Projeto ' + projectName;
+            document.getElementById('modal-description').innerText = description;
+            document.getElementById('repo-link').href = repoLink;
+            document.getElementById('project-link').href = projectLink;
+            const modal = document.getElementById('modal');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 500);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+            modal.classList.remove('show');
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
 </body>
